@@ -18,7 +18,7 @@ import com.bstcine.kotlin.ui.store.StoreFragment
 class MainActivity : AppCompatActivity(),MineFragment.OnFragmentInteractionListener {
 
     private var mFragments = arrayOfNulls<Fragment>(3)
-    private var curIndex: Int = 0
+    private var curIndex: Int = 1
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity(),MineFragment.OnFragmentInteractionListe
         mFragments[1] = StoreFragment()
         mFragments[2] = MineFragment()
         FragmentUtils.add(supportFragmentManager, mFragments, R.id.fragment_container, curIndex);
+        navigation.selectedItemId = R.id.navigation_store
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
